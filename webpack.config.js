@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.ts",
+  entry: "./src/ts/index.ts",
   devtool: "inline-source-map",
   devServer: {
     static: "./dist",
@@ -14,6 +14,10 @@ module.exports = {
         test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i, 
+        loader: "file-loader?name=/img/[name].[ext]"
       },
     ],
   },
